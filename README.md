@@ -14,7 +14,6 @@ npm install --save react-native-simple-animators
 
 ```js
 import { AnimateTranslateX } from 'react-native-simple-animators'; // ES6
-var PropTypes = require('prop-types'); // ES5 with npm // TODO: Test this
 ```
 
 ## Usage
