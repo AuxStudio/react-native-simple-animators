@@ -39,6 +39,7 @@ class BannerText extends React.Component {
                 shouldLoop // loop the animation (must set shouldRepeat to work), ie. -200 => 0 => reset to 0 => -200 => 0 etc.
                 duration={2000} // duration of the animation
                 easing={Easing.ease} // easing
+                delay={500} // useful with animating lists (DELAY * index)
                 style={{backgroundColor: 'red'}} // style(s) of the wrapper (array or object)
                 >
                 <Text>How easy was this?</Text>

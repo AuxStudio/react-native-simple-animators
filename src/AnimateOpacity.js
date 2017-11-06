@@ -31,6 +31,7 @@ export default class AnimateOpacity extends React.Component {
             ]),
             duration: PropTypes.number,
             easing: PropTypes.object,
+            delay: PropTypes.number,
         };
     }
 
@@ -79,6 +80,7 @@ export default class AnimateOpacity extends React.Component {
             duration: this.props.duration,
             easing: this.props.easing,
             useNativeDriver: true,
+            delay: this.props.delay,
         }).start(() => {
             this.props.animateInCallback && this.props.animateInCallback();
 
@@ -99,6 +101,7 @@ export default class AnimateOpacity extends React.Component {
             duration: this.props.duration,
             easing: this.props.easing,
             useNativeDriver: true,
+            delay: this.props.delay,
         }).start(() => {
             this.props.animateOutCallback && this.props.animateOutCallback();
             this.props.shouldRepeat && this.animateIn();
