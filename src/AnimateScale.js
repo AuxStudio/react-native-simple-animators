@@ -21,7 +21,7 @@ export default class AnimateScale extends React.Component {
             shouldAnimateIn: PropTypes.bool,
             shouldAnimateOut: PropTypes.bool,
             animateInCallBack: PropTypes.func,
-            animateOutCallback: PropTypes.func,
+            animateOutCallBack: PropTypes.func,
             shouldRepeat: PropTypes.bool,
             style: PropTypes.oneOfType([
                 PropTypes.number,
@@ -81,7 +81,7 @@ export default class AnimateScale extends React.Component {
             useNativeDriver: true,
             delay: this.props.delay,
         }).start(() => {
-            this.props.animateInCallback && this.props.animateInCallback();
+            this.props.animateInCallBack && this.props.animateInCallBack();
             this.props.shouldRepeat && this.animateOut();
         });
     }
@@ -94,7 +94,7 @@ export default class AnimateScale extends React.Component {
             useNativeDriver: true,
             delay: this.props.delay,
         }).start(() => {
-            this.props.animateOutCallback && this.props.animateOutCallback();
+            this.props.animateOutCallBack && this.props.animateOutCallBack();
             this.props.shouldRepeat && this.animateIn();
         });
     }

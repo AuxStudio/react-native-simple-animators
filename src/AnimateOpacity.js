@@ -21,7 +21,7 @@ export default class AnimateOpacity extends React.Component {
             shouldAnimateIn: PropTypes.bool,
             shouldAnimateOut: PropTypes.bool,
             animateInCallBack: PropTypes.func,
-            animateOutCallback: PropTypes.func,
+            animateOutCallBack: PropTypes.func,
             shouldRepeat: PropTypes.bool,
             shouldLoop: PropTypes.bool, // used with repeat (cycles the animation instead of going back and forth)
             style: PropTypes.oneOfType([
@@ -82,7 +82,7 @@ export default class AnimateOpacity extends React.Component {
             useNativeDriver: true,
             delay: this.props.delay,
         }).start(() => {
-            this.props.animateInCallback && this.props.animateInCallback();
+            this.props.animateInCallBack && this.props.animateInCallBack();
 
             if (this.props.shouldRepeat) {
                 if (this.props.shouldLoop) {
@@ -103,7 +103,7 @@ export default class AnimateOpacity extends React.Component {
             useNativeDriver: true,
             delay: this.props.delay,
         }).start(() => {
-            this.props.animateOutCallback && this.props.animateOutCallback();
+            this.props.animateOutCallBack && this.props.animateOutCallBack();
             this.props.shouldRepeat && this.animateIn();
         });
     }
