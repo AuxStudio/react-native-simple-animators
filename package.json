@@ -1,39 +1,42 @@
 {
-    "name": "react-native-simple-animators",
-    "version": "1.0.4",
-    "description":
-        "A collection of simple, reusable react-native animator wrapper components",
-    "main": "index.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-        "type": "git",
-        "url":
-            "git+https://github.com/shaunsaker/react-native-simple-animators.git"
-    },
-    "keywords": [
-        "react",
-        "react-native",
-        "components",
-        "simple",
-        "ui",
-        "animators",
-        "animation",
-        "wrapper"
-    ],
-    "author": "Shaun Saker <info@shaunsaker.com> (http://shaunsaker.com)",
-    "license": "MIT",
-    "bugs": {
-        "url":
-            "https://github.com/shaunsaker/react-native-simple-animator/issues"
-    },
-    "homepage":
-        "https://github.com/shaunsaker/react-native-simple-animator#readme",
-    "dependencies": {
-        "prop-types": "^15.6.0"
-    },
-    "devDependencies": {
-        "babel-preset-react-native": "^4.0.0"
-    }
+  "name": "react-native-simple-animators",
+  "version": "1.0.5",
+  "description": "A collection of simple, reusable react-native animator wrapper components",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shaunsaker/react-native-simple-animators.git"
+  },
+  "keywords": [
+    "react",
+    "react-native",
+    "components",
+    "simple",
+    "ui",
+    "animators",
+    "animation",
+    "wrapper"
+  ],
+  "author": "Shaun Saker <info@shaunsaker.com> (http://shaunsaker.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shaunsaker/react-native-simple-animator/issues"
+  },
+  "homepage": "https://github.com/shaunsaker/react-native-simple-animator#readme",
+  "dependencies": {
+    "prop-types": "^15.6.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.3",
+    "babel-preset-react-native": "^4.0.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.7.0",
+    "eslint-plugin-react-native": "^3.2.1"
+  }
 }

@@ -1,0 +1,40 @@
+{
+  "env": {
+    "node": true, // this is the best starting point
+    "browser": true, // for react web
+    "es6": true // enables es6 features
+  },
+  "parser": "babel-eslint", // needed to make babel stuff work properly
+  "extends": "airbnb",
+  "rules": {
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "import/no-named-as-default": 0,
+    "function-paren-newline": ["error", "consistent"],
+    "no-console": "off", // console logging is extremely useful
+    "no-mixed-operators": "off", // I personally don't see anything wrong with x + y / z
+    "prefer-rest-params": "off",
+    "no-underscore-dangle": "off", // firebase loves returning props with leading underscores
+    "prefer-destructuring": [
+      "error",
+      {
+        "array": false,
+        "object": true
+      }
+    ],
+    "react/require-default-props": "off",
+    "import/extensions": "off",
+    "import/no-unresolved": "off",
+    "object-curly-newline": "off"
+  },
+  "plugins": ["react", "react-native"],
+  "globals": {
+    "__DEV__": true
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".android.js", ".ios.js"]
+      }
+    }
+  }
+}
