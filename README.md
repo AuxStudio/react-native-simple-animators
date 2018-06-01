@@ -50,5 +50,3 @@ class BannerText extends React.Component {
   }
 }
 ```
-
-## TODOS
