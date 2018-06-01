@@ -1,6 +1,6 @@
 {
   "name": "react-native-simple-animators",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "A collection of simple, reusable react-native animator wrapper components",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shaunsaker/react-native-simple-animators.git"
+    "url": "git+https://github.com/AuxStudio/react-native-simple-animators.git"
   },
   "keywords": [
     "react",
@@ -23,9 +23,9 @@
   "author": "Shaun Saker <info@shaunsaker.com> (http://shaunsaker.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/shaunsaker/react-native-simple-animator/issues"
+    "url": "https://github.com/AuxStudio/react-native-simple-animator/issues"
   },
-  "homepage": "https://github.com/shaunsaker/react-native-simple-animators/README.md",
+  "homepage": "https://github.com/AuxStudio/react-native-simple-animators/README.md",
   "dependencies": {
     "prop-types": "^15.6.0"
   },
