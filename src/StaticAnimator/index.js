@@ -2,9 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Animated, Easing } from 'react-native';
 
-export default class AnimateRotate extends React.Component {
+export default class StaticAnimator extends React.Component {
   static get propTypes() {
     return {
+      type: PropTypes.string.isRequired, // any react-native style prop
       initialValue: PropTypes.number,
       finalValue: PropTypes.number,
       shouldAnimateIn: PropTypes.bool,
@@ -64,12 +65,37 @@ export default class AnimateRotate extends React.Component {
     }
   }
 
+  transforms = ['translateX', 'translateY', 'rotate', 'scale'];
+
+  isTransform = () => {
+    if (this.transforms.includes(this.props.type)) {
+      return true;
+    }
+    return false;
+  };
+
+  isOpacity = () => {
+    if (this.props.type === 'opacity') {
+      return true;
+    }
+    return false;
+  };
+
+  isRotate = () => {
+    if (this.props.type === 'rotate') {
+      return true;
+    }
+    return false;
+  };
+
   animateIn = () => {
+    const useNativeDriver = this.isTransform() || this.isOpacity();
+
     Animated.timing(this.state.animatedValue, {
       toValue: 1,
       duration: this.props.duration,
       easing: this.props.easing,
-      useNativeDriver: true,
+      useNativeDriver,
       delay: this.props.delay,
     }).start(() => {
       if (this.props.animateInCallBack) {
@@ -88,11 +114,13 @@ export default class AnimateRotate extends React.Component {
   };
 
   animateOut = () => {
+    const useNativeDriver = this.isTransform() || this.isOpacity();
+
     Animated.timing(this.state.animatedValue, {
       toValue: 0,
       duration: this.props.duration,
       easing: this.props.easing,
-      useNativeDriver: true,
+      useNativeDriver,
       delay: this.props.delay,
     }).start(() => {
       if (this.props.animateOutCallBack) {
@@ -104,17 +132,30 @@ export default class AnimateRotate extends React.Component {
       }
     });
   };
+
   render() {
-    const animatedStyles = {
-      transform: [
-        {
-          rotate: this.state.animatedValue.interpolate({
-            inputRange: [0, 1],
-            outputRange: [`${this.props.initialValue}deg`, `${this.props.finalValue}deg`],
-          }),
-        },
-      ],
-    };
+    // Append deg to rotate animations
+    const initialValue = this.isRotate()
+      ? `${this.props.initialValue}deg`
+      : this.props.initialValue;
+    const finalValue = this.isRotate() ? `${this.props.finalValue}deg` : this.props.finalValue;
+
+    const animatedTypeStyle = {};
+    animatedTypeStyle[this.props.type] = this.state.animatedValue.interpolate({
+      inputRange: [0, 1],
+      outputRange: [initialValue, finalValue],
+    });
+
+    let animatedStyles;
+
+    // If the type of animation is a transform, push the animatedTypeStyle to an array of 'transform'
+    if (this.isTransform()) {
+      animatedStyles = {
+        transform: [animatedTypeStyle],
+      };
+    } else {
+      animatedStyles = animatedTypeStyle;
+    }
 
     return (
       <Animated.View style={[this.props.style, animatedStyles]}>

@@ -1,7 +1,28 @@
-export { default as AnimateHeight } from "./AnimateHeight";
-export { default as AnimateOpacity } from "./AnimateOpacity";
-export { default as AnimateRotate } from "./AnimateRotate";
-export { default as AnimateScale } from "./AnimateScale";
-export { default as AnimateTranslateX } from "./AnimateTranslateX";
-export { default as AnimateTranslateY } from "./AnimateTranslateY";
-export { default as AnimateWidth } from "./AnimateWidth";
+import React from 'react';
+import PropTypes from 'prop-types';
+
+import EventAnimator from './EventAnimator';
+import StaticAnimator from './StaticAnimator';
+
+const propTypes = {
+  animatedValue: PropTypes.shape({
+    // we're not interested in the shape of this object
+  }), // if supplied, render the EventAnimator
+};
+
+const defaultProps = {};
+
+// Container component responsible for component delegation based on props received
+const Animator = (props) => {
+  const { animatedValue } = props;
+
+  if (animatedValue) {
+    return <EventAnimator {...props} />;
+  }
+  return <StaticAnimator {...props} />;
+};
+
+Animator.propTypes = propTypes;
+Animator.defaultProps = defaultProps;
+
+export default Animator;
