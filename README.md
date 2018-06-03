@@ -1,6 +1,6 @@
 # react-native-simple-animators
 
-A simple, versatile and reusable animating component that can animate any of the animatable style props and will use the native driver where possible.
+A simple, versatile and reusable animating component that can animate any of the animatable style props and will use the native driver where possible. It can also now handle event animations, e.g. on scroll.
 
 `NOTE: Version 2 has been released and it is a breaking change in the way that the imports are handled, e.g.`
 
@@ -28,7 +28,8 @@ yard add react-native-simple-animators
 
 These animators are intended to animate their children in what I feel is a very simple way.
 Opacity and transform styles will use the nativeDriver which greatly improves performance.
-Here is an example of using AnimateTranslateX to animate and wrap a simple Text component:
+
+Here is an example of a static animation:
 
 ```js
 ...
@@ -47,7 +48,30 @@ const BannerText = (props) => {
       duration={2000} // duration of the animation
       easing={Easing.ease} // easing
       delay={500} // useful with animating lists (DELAY * index)
-      style={{ backgroundColor: 'red' }} // style(s) of the wrapper (array or object)
+      style={{ backgroundColor: 'red' }}
+    >
+      <Text>How easy was this?</Text>
+    </AnimateTranslateX>
+  );
+}
+...
+```
+
+and here's an example of an event animation:
+
+```js
+...
+const BannerText = ({ scrollY }) => {
+  return (
+    <Animator
+      type='translateX'
+      animatedValue={scrollY}
+      interpolation={{
+        inputRange: [0, 100], // range of the scroll value
+        outputRange: [0, 200], // range of the translateX value
+        extrapolate: 'clamp',
+      }}
+      style={{ backgroundColor: 'red' }}
     >
       <Text>How easy was this?</Text>
     </AnimateTranslateX>
