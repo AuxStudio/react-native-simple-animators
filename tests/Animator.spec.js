@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { Animated } from 'react-native';
 
-import Animator from '../';
+import Animator from '../src';
 
 it('renders a EventAnimator from Animator when animatedValue was passed in', () => {
   expect(

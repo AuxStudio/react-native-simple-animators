@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { Animated } from 'react-native';
 
-import EventAnimator from '../';
+import EventAnimator from '../src/EventAnimator';
 
 it('renders a EventAnimator with a height animation at 0', () => {
   expect(

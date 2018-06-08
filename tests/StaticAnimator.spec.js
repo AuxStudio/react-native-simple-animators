@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { View } from 'react-native';
 
-import StaticAnimator from '../';
+import StaticAnimator from '../src/StaticAnimator';
 
 // FIXME: shouldAnimateOut, delay, duration, shouldRepeat and shouldLoop were occluded from these tests
 // due to the async complexity they introduce
