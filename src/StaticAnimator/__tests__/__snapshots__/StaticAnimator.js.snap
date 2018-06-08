@@ -1,6 +1,105 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders a StaticAnimator with a height animation at 0 animating in 1`] = `
+exports[`renders a StaticAnimator with a height animation to 0 1`] = `
+<View
+  style={
+    Object {
+      "height": 0,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "height": 100,
+        "width": 100,
+      }
+    }
+  />
+</View>
+`;
+
+exports[`renders a StaticAnimator with a height animation to 0 2`] = `
+<View
+  style={
+    Object {
+      "height": 0,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "height": 100,
+        "width": 100,
+      }
+    }
+  />
+</View>
+`;
+
+exports[`renders a StaticAnimator with a height animation to 50 1`] = `
+<View
+  style={
+    Object {
+      "height": 0,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "height": 100,
+        "width": 100,
+      }
+    }
+  />
+</View>
+`;
+
+exports[`renders a StaticAnimator with a height animation to 100 1`] = `
+<View
+  style={
+    Object {
+      "height": 0,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "height": 100,
+        "width": 100,
+      }
+    }
+  />
+</View>
+`;
+
+exports[`renders a StaticAnimator with a translateX animation to 100 1`] = `
+<View
+  style={
+    Object {
+      "transform": Array [
+        Object {
+          "translateX": 0,
+        },
+      ],
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "height": 100,
+        "width": 100,
+      }
+    }
+  />
+</View>
+`;
+
+exports[`renders a StaticAnimator with an opacityt animation to 1 1`] = `
 <View
   style={
     Object {
