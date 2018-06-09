@@ -93,5 +93,5 @@ git clone https://github.com/AuxStudio/react-native-simple-animators
 NOTE: Make sure that your tests are passing before submitting your PR:
 
 ```shell
-yarn run test
+yarn test
 ```
