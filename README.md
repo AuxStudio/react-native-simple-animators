@@ -88,12 +88,10 @@ const BannerText = ({ scrollY }) => {
 git clone https://github.com/AuxStudio/react-native-simple-animators
 ```
 
-2.  Make your changes.
+2.  Follow our [process](./docs/PROCESS.md).
 
-3.  Make sure that your tests are passing:
+NOTE: Make sure that your tests are passing before submitting your PR:
 
 ```shell
 yarn run test
 ```
-
-4.  Create a PR using this [template](https://embeddedartistry.com/blog/2017/8/4/a-github-pull-request-template-for-your-projects).
