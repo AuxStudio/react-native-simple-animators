@@ -91,7 +91,7 @@ it('renders a StaticAnimator with a translateX animation to 100', () => {
   ).toMatchSnapshot();
 });
 
-it('renders a StaticAnimator with an opacityt animation to 1', () => {
+it('renders a StaticAnimator with an opacity animation to 1', () => {
   expect(
     renderer.create(
       <StaticAnimator
