@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Animated, Easing } from 'react-native';
 
-import utils from './utils';
+import utils from '../utils';
 
 export default class StaticAnimator extends React.Component {
   static get propTypes() {
