@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Animated, ViewPropTypes } from 'react-native';
 
+import utils from '../utils';
+
 const propTypes = {
   type: PropTypes.string.isRequired,
   animatedValue: PropTypes.shape({
@@ -18,15 +20,6 @@ const propTypes = {
 
 const defaultProps = {};
 
-const transforms = ['translateX', 'translateY', 'rotate', 'scale'];
-
-function isTransform(animationType) {
-  if (transforms.includes(animationType)) {
-    return true;
-  }
-  return false;
-}
-
 const EventAnimator = ({ type, animatedValue, interpolation, children, style }) => {
   const animatedTypeStyle = {};
   animatedTypeStyle[type] = animatedValue.interpolate(interpolation);
@@ -34,7 +27,7 @@ const EventAnimator = ({ type, animatedValue, interpolation, children, style }) 
   let animatedStyles;
 
   // If the type of animation is a transform, push the animatedTypeStyle to an array of 'transform'
-  if (isTransform(type)) {
+  if (utils.isTransform(type)) {
     animatedStyles = {
       transform: [animatedTypeStyle],
     };

@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Animated, Easing } from 'react-native';
 
+import utils from './utils';
+
 export default class StaticAnimator extends React.Component {
   static get propTypes() {
     return {
@@ -65,31 +67,8 @@ export default class StaticAnimator extends React.Component {
     }
   }
 
-  transforms = ['translateX', 'translateY', 'rotate', 'scale'];
-
-  isTransform = () => {
-    if (this.transforms.includes(this.props.type)) {
-      return true;
-    }
-    return false;
-  };
-
-  isOpacity = () => {
-    if (this.props.type === 'opacity') {
-      return true;
-    }
-    return false;
-  };
-
-  isRotate = () => {
-    if (this.props.type === 'rotate') {
-      return true;
-    }
-    return false;
-  };
-
   animateIn = () => {
-    const useNativeDriver = this.isTransform() || this.isOpacity();
+    const useNativeDriver = utils.isTransform(this.props.type) || this.props.type === 'opacity';
 
     Animated.timing(this.state.animatedValue, {
       toValue: 1,
@@ -114,7 +93,7 @@ export default class StaticAnimator extends React.Component {
   };
 
   animateOut = () => {
-    const useNativeDriver = this.isTransform() || this.isOpacity();
+    const useNativeDriver = utils.isTransform(this.props.type) || this.props.type === 'opacity';
 
     Animated.timing(this.state.animatedValue, {
       toValue: 0,
@@ -135,10 +114,10 @@ export default class StaticAnimator extends React.Component {
 
   render() {
     // Append deg to rotate animations
-    const initialValue = this.isRotate()
-      ? `${this.props.initialValue}deg`
-      : this.props.initialValue;
-    const finalValue = this.isRotate() ? `${this.props.finalValue}deg` : this.props.finalValue;
+    const initialValue =
+      this.props.type === 'rotate' ? `${this.props.initialValue}deg` : this.props.initialValue;
+    const finalValue =
+      this.props.type === 'rotate' ? `${this.props.finalValue}deg` : this.props.finalValue;
 
     const animatedTypeStyle = {};
     animatedTypeStyle[this.props.type] = this.state.animatedValue.interpolate({
@@ -149,7 +128,7 @@ export default class StaticAnimator extends React.Component {
     let animatedStyles;
 
     // If the type of animation is a transform, push the animatedTypeStyle to an array of 'transform'
-    if (this.isTransform()) {
+    if (utils.isTransform(this.props.type)) {
       animatedStyles = {
         transform: [animatedTypeStyle],
       };
