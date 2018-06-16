@@ -99,7 +99,7 @@ exports[`renders a StaticAnimator with a translateX animation to 100 1`] = `
 </View>
 `;
 
-exports[`renders a StaticAnimator with an opacityt animation to 1 1`] = `
+exports[`renders a StaticAnimator with an opacity animation to 1 1`] = `
 <View
   style={
     Object {
