@@ -1,5 +1,7 @@
 # react-native-simple-animators
 
+[![Build Status](https://travis-ci.com/AuxStudio/react-native-simple-animators.svg?branch=master)](https://travis-ci.com/AuxStudio/react-native-simple-animators)
+
 A simple, versatile and reusable animating component that can animate any of the animatable style props and will use the native driver where possible. It can also now handle event animations, e.g. on scroll.
 
 `NOTE: Version 2 has been released and it is a breaking change in the way that the imports are handled, e.g.`
