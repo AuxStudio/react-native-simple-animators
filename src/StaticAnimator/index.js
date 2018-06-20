@@ -5,6 +5,17 @@ import { Animated, Easing } from 'react-native';
 import utils from '../utils';
 
 export default class StaticAnimator extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.animateIn = this.animateIn.bind(this);
+    this.animateOut = this.animateOut.bind(this);
+
+    this.state = {
+      animatedValue: new Animated.Value(0),
+    };
+  }
+
   static get propTypes() {
     return {
       type: PropTypes.string.isRequired, // any react-native style prop
@@ -30,10 +41,6 @@ export default class StaticAnimator extends React.Component {
       easing: Easing.gentle,
     };
   }
-
-  state = {
-    animatedValue: new Animated.Value(0),
-  };
 
   componentDidMount() {
     // In cases where update needs to be used instead
@@ -67,7 +74,7 @@ export default class StaticAnimator extends React.Component {
     }
   }
 
-  animateIn = () => {
+  animateIn() {
     const useNativeDriver = utils.isTransform(this.props.type) || this.props.type === 'opacity';
 
     Animated.timing(this.state.animatedValue, {
@@ -90,9 +97,9 @@ export default class StaticAnimator extends React.Component {
         }
       }
     });
-  };
+  }
 
-  animateOut = () => {
+  animateOut() {
     const useNativeDriver = utils.isTransform(this.props.type) || this.props.type === 'opacity';
 
     Animated.timing(this.state.animatedValue, {
@@ -110,7 +117,7 @@ export default class StaticAnimator extends React.Component {
         this.animateIn();
       }
     });
-  };
+  }
 
   render() {
     // Append deg to rotate animations

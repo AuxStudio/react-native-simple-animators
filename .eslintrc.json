@@ -26,7 +26,11 @@
     "arrow-body-style": 0, // don't enforce arrow-body-style, block body (() => { ... }) and single expression (() => ...) depends on use case
     "object-curly-newline": "off", // prettier is no longer placing props on new lines so we'll disable this rule until they fix it
     "import/no-unresolved": "off",
-    "import/extensions": "off"
+    "import/extensions": "off",
+    "react/sort-comp": [
+      1,
+      { "order": ["constructor", "static-methods", "lifecycle", "everything-else", "render"] }
+    ]
   },
   "plugins": ["react", "react-native"],
   "globals": {
