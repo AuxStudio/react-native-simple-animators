@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders a EventAnimator from Animator when animatedValue was passed in 1`] = `
+exports[`EventAnimator renders a StaticAnimator when animatedValue was not passed in 1`] = `
 <View
   style={
     Object {
@@ -10,7 +10,7 @@ exports[`renders a EventAnimator from Animator when animatedValue was passed in 
 />
 `;
 
-exports[`renders a StaticAnimator from Animator when animatedValue was not passed in 1`] = `
+exports[`EventAnimator renders an EventAnimator when animatedValue was passed in 1`] = `
 <View
   style={
     Object {
