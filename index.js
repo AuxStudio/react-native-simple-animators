@@ -1,1 +1,3 @@
-export * from './src/index';
+import Animator from './src';
+
+export default Animator;
