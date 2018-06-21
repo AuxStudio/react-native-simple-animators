@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders a EventAnimator with a height animation at 0 1`] = `
+exports[`EventAnimator renders with a height animation at 0 1`] = `
 <View
   style={
     Object {
@@ -10,7 +10,7 @@ exports[`renders a EventAnimator with a height animation at 0 1`] = `
 />
 `;
 
-exports[`renders a EventAnimator with a height animation at 50 1`] = `
+exports[`EventAnimator renders with a height animation at 50 1`] = `
 <View
   style={
     Object {
@@ -20,7 +20,7 @@ exports[`renders a EventAnimator with a height animation at 50 1`] = `
 />
 `;
 
-exports[`renders a EventAnimator with a height animation at 100 1`] = `
+exports[`EventAnimator renders with a height animation at 100 1`] = `
 <View
   style={
     Object {
@@ -30,7 +30,7 @@ exports[`renders a EventAnimator with a height animation at 100 1`] = `
 />
 `;
 
-exports[`renders a EventAnimator with an opacity animation 1`] = `
+exports[`EventAnimator renders with an opacity animation 1`] = `
 <View
   style={
     Object {
@@ -40,7 +40,7 @@ exports[`renders a EventAnimator with an opacity animation 1`] = `
 />
 `;
 
-exports[`renders a EventAnimator with an translateX animation 1`] = `
+exports[`EventAnimator renders with an translateX animation 1`] = `
 <View
   style={
     Object {

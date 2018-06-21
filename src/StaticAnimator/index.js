@@ -43,7 +43,6 @@ export default class StaticAnimator extends React.Component {
   }
 
   componentDidMount() {
-    // In cases where update needs to be used instead
     const shouldAnimateOnMount =
       (this.props.initialValue || this.props.initialValue === 0) &&
       (this.props.finalValue || this.props.finalValue === 0);
@@ -54,22 +53,15 @@ export default class StaticAnimator extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    // Use case where update used as onMount (see componentDidMount)
     const shouldAnimateOnUpdate =
       (this.props.initialValue && this.props.initialValue !== prevProps.initialValue) ||
       (this.props.finalValue && this.props.finalValue !== prevProps.finalValue);
 
     if (shouldAnimateOnUpdate) {
       this.animateIn();
-    } else if (
-      this.props.shouldAnimateIn &&
-      this.props.shouldAnimateIn !== prevProps.shouldAnimateIn
-    ) {
+    } else if (this.props.shouldAnimateIn && !prevProps.shouldAnimateIn) {
       this.animateIn();
-    } else if (
-      this.props.shouldAnimateOut &&
-      this.props.shouldAnimateOut !== prevProps.shouldAnimateOut
-    ) {
+    } else if (this.props.shouldAnimateOut && !prevProps.shouldAnimateOut) {
       this.animateOut();
     }
   }
