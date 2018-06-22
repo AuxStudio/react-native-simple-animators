@@ -7,7 +7,10 @@
     "test": "jest"
   },
   "jest": {
-    "preset": "jest-react-native"
+    "preset": "jest-react-native",
+    "setupFiles": [
+      "./src/__mocks__/setup.js"
+    ]
   },
   "repository": {
     "type": "git",
