@@ -161,25 +161,19 @@ describe('StaticAnimator', () => {
     expect(spy).toHaveBeenCalled();
   });
 
-  // Cannot get this test to work - it does work, but spy is not called apparently
-  // Try console.log in animateOut, it is definitely called
-  // it('animateOut is called on componentDidUpdate', () => {
-  //   spy = jest.spyOn(StaticAnimator.prototype, 'animateIn');
+  it('animateOut is called on componentDidUpdate', () => {
+    spy = jest.spyOn(StaticAnimator.prototype, 'animateOut');
 
-  //   const component = renderer.create(
-  //     <StaticAnimator type="height" initialValue={0} finalValue={1} />,
-  //   );
+    const component = renderer.create(
+      <StaticAnimator type="height" initialValue={0} finalValue={1} />,
+    );
 
-  //   spy.mockReset();
+    component.update(
+      <StaticAnimator type="height" initialValue={0} finalValue={1} shouldAnimateOut />,
+    );
 
-  //   spy = jest.spyOn(StaticAnimator.prototype, 'animateOut');
-
-  //   component.update(
-  //     <StaticAnimator type="height" initialValue={0} finalValue={1} shouldAnimateOut />,
-  //   );
-
-  //   expect(spy).toHaveBeenCalled();
-  // });
+    expect(spy).toHaveBeenCalled();
+  });
 
   afterEach(() => {
     if (spy) {
