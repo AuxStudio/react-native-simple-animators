@@ -42,9 +42,9 @@ const BannerText = (props) => {
       initialValue={-200} // value to animate from
       finalValue={0} // value to animate to
       shouldAnimateIn // flag to start the animation
-      animateInCallBack={null} // some function to trigger once the animation has ended
+      animateInCallback={null} // some function to trigger once the animation has ended
       shouldAnimateOut={false} // flag to reverse the animation (only if shouldAnimateIn was previously set)
-      animateOutCallBack={null} // some function to trigger once the animation has ended
+      animateOutCallback={null} // some function to trigger once the animation has ended
       shouldRepeat // repeat the animation, ie. -200 => 0 and back to -200 etc.
       shouldLoop // loop the animation (must set shouldRepeat to work), ie. -200 => 0 => reset to 0 => -200 => 0 etc.
       duration={2000} // duration of the animation
