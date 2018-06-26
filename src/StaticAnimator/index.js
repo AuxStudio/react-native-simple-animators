@@ -24,7 +24,9 @@ export default class StaticAnimator extends React.Component {
       shouldAnimateIn: PropTypes.bool,
       shouldAnimateOut: PropTypes.bool,
       animateInCallBack: PropTypes.func,
+      animateInCallback: PropTypes.func,
       animateOutCallBack: PropTypes.func,
+      animateOutCallback: PropTypes.func,
       shouldRepeat: PropTypes.bool,
       shouldLoop: PropTypes.bool, // used with repeat (cycles the animation instead of going back and forth)
       style: PropTypes.oneOfType([PropTypes.number, PropTypes.object, PropTypes.array]),
@@ -78,6 +80,8 @@ export default class StaticAnimator extends React.Component {
     }).start(() => {
       if (this.props.animateInCallBack) {
         this.props.animateInCallBack();
+      } else if (this.props.animateInCallback) {
+        this.props.animateInCallback();
       }
 
       if (this.props.shouldRepeat) {
@@ -103,6 +107,8 @@ export default class StaticAnimator extends React.Component {
     }).start(() => {
       if (this.props.animateOutCallBack) {
         this.props.animateOutCallBack();
+      } else if (this.props.animateOutCallback) {
+        this.props.animateOutCallback();
       }
 
       if (this.props.shouldRepeat) {
