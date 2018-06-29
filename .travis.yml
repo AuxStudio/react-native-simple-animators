@@ -2,9 +2,7 @@ language: node_js
 node_js:
 - stable
 before_deploy:
-- npm version patch -m "Bump version to %s [skip ci]"
-- git push origin master
-- git push --tags
+- .travis/pu.sh
 deploy:
   provider: npm
   email: info@shaunsaker.com
@@ -12,3 +10,4 @@ deploy:
     secure: dEAkh7RL7SCUyCJpl50nZF170RTCUROWJ5uMWj85Ejuab1IrkjmseV5Uvc4ptrT3X9OiP3zB5A37wVduSNgAlxxDqsUXE2pyF34ZMYuZ1OeDWI1ZQzdxOT92mMIZajb63HopfzkVdwTBlWqpixzlswlRXqkXqSxWAXSi1HoD1AqIJKgZwx1BtLWsV2BwUNjsDEebQ37Ko78thWrnRiir0l8QJqr/Mq6WjMQXv7eFe/rdy/OjLIe2oUBenspbtdKrDQVRe0X0ZBYjt5bVyN2hsFuaqXd6JVRzpqmzeAVhe8XDk9q9ceELS5tH9YGFuJ5hVpt7XYkNu/qu8+M85RBZo/l/g23FheICGH7tgJZHXpW45lr7yIZShAgK8tQIs2rFg1R7xYmY6zBH1EO31F5aus7IDlnbLC3/+BQCa8VklgXJrs3Ou+9VrBX9nQk3STr6JhC5PTcW5ExxkVZI2B7YVn4p/mvucZLoRAEuXGuo+hB5crXobA06fEeVkr8Ad4AN8NEUiGxMmMW83UaLzHXLdreszUUCZ14CRahOURby0AzIaSixcdNQ7PLtd77lTDw8kpLPuSAqj/iebLXzhaYQ4OdG/0Q+Uiw4f/DWA5fTOAiPizoBNjImeUt7hJ0K5cjK2IsU5EBdVjjMU0/+KbAfAXYOa6MaBKZwaWGlJE28qyE=
   on:
     branch: master
+    tags: false
