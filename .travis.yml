@@ -1,6 +1,8 @@
 language: node_js
 node_js:
 - stable
+before_install:
+  - chmod +x .travis/pu.sh
 before_deploy:
 - .travis/pu.sh
 deploy:
