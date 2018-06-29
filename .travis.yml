@@ -1,6 +1,10 @@
 language: node_js
 node_js:
 - stable
+before_deploy:
+- npm version patch -m "Bump version to %s [skip ci]"
+- git push origin master
+- git push --tags
 deploy:
   provider: npm
   email: info@shaunsaker.com
