@@ -1,6 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { View, Image, ScrollView, Text } from 'react-native';
+import { View, Image, ScrollView, Text, Animated } from 'react-native';
 import Animator from 'react-native-simple-animators'; // eslint-disable-line
 
 import styles from './styles.js';
@@ -44,6 +43,7 @@ export default class App extends React.Component {
       animation: this.animations[0],
       shouldAnimateIn: false,
       activeTab: this.tabs[0],
+      scrollY: new Animated.Value(0),
     };
   }
 
@@ -68,30 +68,59 @@ export default class App extends React.Component {
   }
 
   render() {
-    const { animation, shouldAnimateIn, activeTab } = this.state;
+    const { animation, shouldAnimateIn, activeTab, scrollY } = this.state;
+
+    const animatorComponent =
+      activeTab === 'Static' ? (
+        <Animator
+          key={
+            animation.isNative
+              ? 'native'
+              : 'non-native' /* force a remount if non-native animation */
+          }
+          type={animation.type}
+          initialValue={animation.initialValue}
+          finalValue={animation.finalValue}
+          shouldAnimateIn={shouldAnimateIn}
+          animateInCallback={this.toggleShouldAnimateIn}
+        >
+          <Image source={AVATAR} style={styles.image} />
+        </Animator>
+      ) : (
+        <Animator
+          key={
+            animation.isNative
+              ? 'native'
+              : 'non-native' /* force a remount if non-native animation */
+          }
+          type={animation.type}
+          animatedValue={scrollY}
+          interpolation={{
+            inputRange: [0, 100],
+            outputRange: [
+              animation.type === 'rotate' ? `${animation.initialValue}deg` : animation.initialValue, // rotate animation requires a string with deg appended
+              animation.type === 'rotate' ? `${animation.finalValue}deg` : animation.finalValue,
+            ],
+            extrapolate: 'clamp',
+          }}
+        >
+          <Image source={AVATAR} style={styles.image} />
+        </Animator>
+      );
 
     return (
       <View style={styles.container}>
-        <View style={styles.demoContainer}>
-          <Animator
-            key={
-              animation.isNative
-                ? 'native'
-                : 'non-native' /* force a remount if non-native animation */
-            }
-            type={animation.type}
-            initialValue={animation.initialValue}
-            finalValue={animation.finalValue}
-            shouldAnimateIn={shouldAnimateIn}
-            animateInCallback={this.toggleShouldAnimateIn}
-          >
-            <Image source={AVATAR} style={styles.image} />
-          </Animator>
-        </View>
+        <View style={styles.demoContainer}>{animatorComponent}</View>
 
         <ScrollView
           style={styles.scrollContainer}
           contentContainerStyle={styles.scrollContentContainer}
+          onScroll={Animated.event([{ nativeEvent: { contentOffset: { y: this.state.scrollY } } }])}
+          scrollEventThrottle={
+            activeTab === 'Event'
+              ? 16
+              : 100000 /* we don't need the scroll event when activeTab is Static */
+          }
         >
           <Text style={styles.titleText}>Select an animation</Text>
           {this.animations.map((animationObject) => {
