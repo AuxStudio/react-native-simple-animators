@@ -82,6 +82,26 @@ const BannerText = ({ scrollY }) => {
 ...
 ```
 
+## Demo
+
+1.  Clone the repo.
+
+```shell
+git clone https://github.com/AuxStudio/react-native-simple-animators
+```
+
+2.  Install dependencies:
+
+```shell
+cd demo && yarn
+```
+
+3.  Run the demo
+
+```shell
+react-native run-ios
+```
+
 ## Development
 
 1.  Clone the repo.
@@ -90,7 +110,13 @@ const BannerText = ({ scrollY }) => {
 git clone https://github.com/AuxStudio/react-native-simple-animators
 ```
 
-2.  Follow our [process](./docs/PROCESS.md).
+2.  Install dependencies:
+
+```shell
+yarn
+```
+
+3.  Follow our [process](./docs/PROCESS.md).
 
 NOTE: Make sure that your tests are passing before submitting your PR:
 
