@@ -1,24 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { View, Image, ScrollView, TouchableOpacity, Text } from 'react-native';
+import { View, Image, ScrollView, Text } from 'react-native';
 import Animator from 'react-native-simple-animators'; // eslint-disable-line
 
 import styles from './styles.js';
 
-const buttonPropTypes = {
-  handlePress: PropTypes.func,
-  text: PropTypes.string,
-};
-
-const Button = ({ handlePress, text }) => {
-  return (
-    <TouchableOpacity onPress={handlePress} style={styles.button}>
-      <Text style={styles.buttonText}>{text}</Text>
-    </TouchableOpacity>
-  );
-};
-
-Button.propTypes = buttonPropTypes;
+import Button from './components/Button';
 
 const AVATAR = require('./avatar.png');
 
@@ -90,6 +77,7 @@ export default class App extends React.Component {
             <Image source={AVATAR} style={styles.image} />
           </Animator>
         </View>
+
         <ScrollView
           style={styles.scrollContainer}
           contentContainerStyle={styles.scrollContentContainer}
@@ -101,6 +89,8 @@ export default class App extends React.Component {
                 <Button
                   text={animationObject.type}
                   handlePress={() => this.setAnimation(animationObject)}
+                  textStyle={animationObject.type === animation.type && { color: 'white' }}
+                  style={animationObject.type === animation.type && { backgroundColor: 'black' }}
                 />
               </View>
             );

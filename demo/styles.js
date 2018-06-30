@@ -1,6 +1,7 @@
 import { StyleSheet, Platform } from 'react-native';
 
 const PADDING = 20;
+const BORDER_RADIUS = 5;
 const IMAGE_SIZE = 150;
 
 const styles = StyleSheet.create({
@@ -16,12 +17,14 @@ const styles = StyleSheet.create({
     padding: PADDING,
     backgroundColor: '#e3e3e3',
     overflow: 'hidden',
+    borderRadius: BORDER_RADIUS,
   },
   image: {
     width: IMAGE_SIZE,
     height: IMAGE_SIZE,
     borderRadius: IMAGE_SIZE / 2,
   },
+
   scrollContainer: {
     marginTop: PADDING,
     flex: 1, // fill the remaining space
@@ -32,21 +35,12 @@ const styles = StyleSheet.create({
 
   titleText: {
     fontSize: 18,
-    textAlign: 'center',
+    fontWeight: '700',
     marginBottom: PADDING,
   },
 
   buttonContainer: {
-    marginBottom: PADDING,
-  },
-  button: {
-    padding: PADDING,
-    borderWidth: 1,
-    borderRadius: 5,
-  },
-  buttonText: {
-    fontSize: 16,
-    textAlign: 'center',
+    marginBottom: PADDING / 2,
   },
 });
 
