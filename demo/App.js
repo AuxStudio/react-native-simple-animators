@@ -6,6 +6,7 @@ import Animator from 'react-native-simple-animators'; // eslint-disable-line
 import styles from './styles.js';
 
 import Button from './components/Button';
+import TabBar from './components/TabBar';
 
 const AVATAR = require('./avatar.png');
 
@@ -15,6 +16,7 @@ export default class App extends React.Component {
 
     this.setAnimation = this.setAnimation.bind(this);
     this.toggleShouldAnimateIn = this.toggleShouldAnimateIn.bind(this);
+    this.setActiveTab = this.setActiveTab.bind(this);
 
     this.animations = [
       { type: 'translateX', initialValue: 0, finalValue: 150, isNative: true },
@@ -36,9 +38,12 @@ export default class App extends React.Component {
       },
     ];
 
+    this.tabs = ['Static', 'Event'];
+
     this.state = {
       animation: this.animations[0],
       shouldAnimateIn: false,
+      activeTab: this.tabs[0],
     };
   }
 
@@ -56,8 +61,14 @@ export default class App extends React.Component {
     });
   }
 
+  setActiveTab(activeTab) {
+    this.setState({
+      activeTab,
+    });
+  }
+
   render() {
-    const { animation, shouldAnimateIn } = this.state;
+    const { animation, shouldAnimateIn, activeTab } = this.state;
 
     return (
       <View style={styles.container}>
@@ -96,6 +107,10 @@ export default class App extends React.Component {
             );
           })}
         </ScrollView>
+
+        <View style={styles.tabBarContainer}>
+          <TabBar tabs={this.tabs} activeTab={activeTab} handlePress={this.setActiveTab} />
+        </View>
       </View>
     );
   }
