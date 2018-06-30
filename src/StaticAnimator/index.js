@@ -8,6 +8,7 @@ export default class StaticAnimator extends React.Component {
   constructor(props) {
     super(props);
 
+    this.reset = this.reset.bind(this);
     this.animateIn = this.animateIn.bind(this);
     this.animateOut = this.animateOut.bind(this);
 
@@ -55,17 +56,35 @@ export default class StaticAnimator extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
+    const shouldReset = this.props.type && this.props.type !== prevProps.type;
+
     const shouldAnimateOnUpdate =
       (this.props.initialValue && this.props.initialValue !== prevProps.initialValue) ||
-      (this.props.finalValue && this.props.finalValue !== prevProps.finalValue);
+      (this.props.finalValue && this.props.finalValue !== prevProps.finalValue) ||
+      shouldReset;
 
-    if (shouldAnimateOnUpdate) {
+    if (shouldReset) {
+      this.reset(shouldAnimateOnUpdate);
+    } else if (shouldAnimateOnUpdate) {
       this.animateIn();
     } else if (this.props.shouldAnimateIn && !prevProps.shouldAnimateIn) {
       this.animateIn();
     } else if (this.props.shouldAnimateOut && !prevProps.shouldAnimateOut) {
       this.animateOut();
     }
+  }
+
+  reset(shouldAnimateIn) {
+    this.setState(
+      {
+        animatedValue: new Animated.Value(0),
+      },
+      () => {
+        if (shouldAnimateIn) {
+          this.animateIn();
+        }
+      },
+    );
   }
 
   animateIn() {

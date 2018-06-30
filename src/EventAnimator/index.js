@@ -11,7 +11,8 @@ const propTypes = {
   }).isRequired,
   interpolation: PropTypes.shape({
     inputRange: PropTypes.arrayOf(PropTypes.number).isRequired,
-    outputRange: PropTypes.arrayOf(PropTypes.number).isRequired,
+    outputRange: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.number, PropTypes.string])) // rotate will pass a string
+      .isRequired,
     extrapolate: PropTypes.oneOf(['clamp']),
   }).isRequired,
   children: PropTypes.node,

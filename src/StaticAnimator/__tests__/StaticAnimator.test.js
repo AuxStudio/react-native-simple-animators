@@ -145,6 +145,20 @@ describe('StaticAnimator', () => {
     expect(spy).toHaveBeenCalled();
   });
 
+  it('reset is called on componentDidUpdate when the type prop changes', () => {
+    spy = jest.spyOn(StaticAnimator.prototype, 'reset');
+
+    const component = renderer.create(
+      <StaticAnimator type="height" initialValue={0} finalValue={1} />,
+    );
+
+    expect(spy).not.toHaveBeenCalled();
+
+    component.update(<StaticAnimator type="width" initialValue={0} finalValue={1} />);
+
+    expect(spy).toHaveBeenCalled();
+  });
+
   it('animateIn is called on componentDidUpdate when the values change', () => {
     spy = jest.spyOn(StaticAnimator.prototype, 'animateIn');
 
