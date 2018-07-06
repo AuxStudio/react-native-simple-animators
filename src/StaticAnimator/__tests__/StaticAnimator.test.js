@@ -191,7 +191,7 @@ describe('StaticAnimator', () => {
 
   afterEach(() => {
     if (spy) {
-      spy.mockReset();
+      spy.mockClear();
     }
   });
 });
