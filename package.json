@@ -1,10 +1,10 @@
 {
   "name": "react-native-simple-animators",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "description": "A collection of simple, reusable react-native animator wrapper components",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest --maxWorkers=4"
   },
   "jest": {
     "preset": "jest-react-native",
