@@ -1,6 +1,6 @@
 {
   "name": "react-native-simple-animators",
-  "version": "2.2.3",
+  "version": "2.2.4",
   "description": "A collection of simple, reusable react-native animator wrapper components",
   "main": "index.js",
   "scripts": {

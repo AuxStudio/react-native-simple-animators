@@ -20,8 +20,8 @@ export default class StaticAnimator extends React.Component {
   static get propTypes() {
     return {
       type: PropTypes.string.isRequired, // any react-native style prop
-      initialValue: PropTypes.number,
-      finalValue: PropTypes.number,
+      initialValue: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+      finalValue: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
       shouldAnimateIn: PropTypes.bool,
       shouldAnimateOut: PropTypes.bool,
       animateInCallBack: PropTypes.func,
