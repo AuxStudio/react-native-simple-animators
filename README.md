@@ -116,10 +116,24 @@ git clone https://github.com/AuxStudio/react-native-simple-animators
 yarn
 ```
 
-3.  Follow our [process](./docs/PROCESS.md).
-
-NOTE: Make sure that your tests are passing before submitting your PR:
+3. Make sure the tests are passing:
 
 ```shell
 yarn test
+```
+
+4. Create a PR.
+
+## Releases
+
+1. Login to npm
+
+```
+npm login
+```
+
+2. Run the publish script.
+
+```
+yarn run publish
 ```

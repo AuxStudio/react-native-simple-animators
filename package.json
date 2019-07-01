@@ -4,7 +4,11 @@
   "description": "A collection of simple, reusable react-native animator wrapper components",
   "main": "index.js",
   "scripts": {
-    "test": "jest --maxWorkers=4"
+    "test": "jest --maxWorkers=4",
+    "publish": "yarn publish",
+    "update-changelog": "yarn run auto-changelog && git add . && git commit -m 'Update Changelog' && git push",
+    "update-tags": "PACKAGE_VERSION=$(cat package.json | grep \\\"version\\\" | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && git tag v$PACKAGE_VERSION && git push --tags",
+    "postpublish": "yarn run update-changelog && yarn run update-tags"
   },
   "jest": {
     "preset": "jest-react-native",
@@ -39,11 +43,12 @@
   },
   "homepage": "https://github.com/AuxStudio/react-native-simple-animators/README.md",
   "dependencies": {
-    "prop-types": "^15.6.0",
     "braces": ">=2.3.1",
-    "lodash": ">=4.17.11"
+    "lodash": ">=4.17.11",
+    "prop-types": "^15.6.0"
   },
   "devDependencies": {
+    "auto-changelog": "^1.13.0",
     "babel-eslint": "^8.2.3",
     "babel-jest": "^23.0.1",
     "babel-preset-react-native": "^4.0.0",
@@ -58,5 +63,11 @@
     "react": "^16.4.0",
     "react-native": "^0.55.4",
     "react-test-renderer": "^16.4.0"
+  },
+  "auto-changelog": {
+    "output": "CHANGELOG.md",
+    "template": "keepachangelog",
+    "unreleased": true,
+    "commitLimit": false
   }
 }
