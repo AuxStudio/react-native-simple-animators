@@ -65,7 +65,7 @@ export default class StaticAnimator extends React.Component {
 
     if (shouldReset) {
       this.reset(shouldAnimateOnUpdate);
-    } else if (shouldAnimateOnUpdate) {
+    } else if (this.props.shouldAnimateIn && shouldAnimateOnUpdate) {
       this.animateIn();
     } else if (this.props.shouldAnimateIn && !prevProps.shouldAnimateIn) {
       this.animateIn();
